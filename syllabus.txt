@@ -1,0 +1,56 @@
+What is node js ?
+
+Node.js ek JavaScript Runtime Environment hai jo browser ke bahar JavaScript 
+code chalane ke liye use hota hai. Iski madad se aap backend applications, 
+APIs, web servers, real-time apps, aur command-line tools bana sakte hain.
+
+ Why node js?
+
+Node.js se pehle JavaScript sirf browser me chalti thi. 
+Agar backend banana hota tha to PHP, Java, ya Python use karna padta tha.
+
+Node.js ke baad:
+
+Frontend me JavaScript
+Backend me bhi JavaScript
+
+Yani ek hi language se full-stack development mumkin ho gaya.
+
+
+What is package ?
+
+ye ek reusable code huta hai jo pehla se kisi ne likha huta hai or hum uska use kr skte hai
+
+require> jo package apne install kiya hai usko apki js file 
+me use krne ke liye require use huta.
+
+package.json file > humein dependencies batati hai ke apke app me kya kya install hai.
+
+createserver ek server create krega uske ander hum do callbacks denge 
+res.end > koi bhi user agar hamare server pe kuch b 
+request bhejega uske response pe humne kya show karwana hai. 
+
+Routing > url humein batata hai ke ap kis particular route ko hit kr rhe ho
+
+npx nodemon > ye kya karta hai realtime me apki application ko start karta hai 
+
+
+
+Express JS
+Express.js ek Node.js framework hai 
+jo web applications aur APIs banana bahut asaan kar deta hai.
+
+Node.js = Engine 
+Express.js = Car ki body aur controls 
+
+Node.js sirf server banane ki capability deta hai, jabke Express us server ko likhna aur manage karna easy bana deta hai.
+
+install express js > npm i express
+
+interaction of express with html ?
+
+engine ke zariye krty hai ejs Engine
+
+Middelwares 
+
+Middleware ek function hota hai jo request aur response ke beech me execute hota hai.
