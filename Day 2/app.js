@@ -180,3 +180,128 @@ app.get("/profile",(req,res)=>{
 const morgan = require('morgan');
 
 app.use(morgan('dev'));
+
+// knsi request ayi thi hamare server pe, uska method kya tha, route kya tha, 
+// kitna time liya response bhejne me.
+
+// apka koi bhi middalware ho, custom, built-in, 
+// third party by default sub route ke lie chalte hai
+
+
+// why middleware ?
+
+// Agar middleware na ho to har route me same code baar baar likhna padega.
+
+// problem without middleware. 
+// Maan lo har route par user login check karna hai:
+
+app.get("/profile", (req,res) => {
+    if(!inLogged){
+        return res.send("login first");
+    }
+    res.send("Profile Page")
+})
+
+app.get("/dashboard",(req,res) => {
+    if (!inLogged) {
+        return res.send("login first")
+    }
+    res.send("Dashboard Page")
+})
+
+// Yahan authentication code har route me repeat ho raha hai.
+
+
+// Solution Using Middleware
+
+const auth = (req,res,next) => {
+    if (!inLogged) {
+        return res.send("Login First")
+    }
+
+    next()
+};
+
+app.get("/profile", auth, (req,res) => {
+    res.send("Profile Page")
+});
+
+app.get("/dashboard", auth, (req,res) => {
+    res.send("Dahboard Page")
+});
+
+// Ab authentication ka code sirf ek jagah likha gaya.
+
+// Middleware ke Main Uses
+
+// 1. Authentication 
+// Check karta hai user login hai ya nahi.
+
+app.get("/profile", auth, handler);
+
+// 2. Authorization
+// Check karta hai user Admin hai ya Normal User.
+
+const isAdmin = (req,res,next) => {
+    if (req.user.role === "admin") {
+        next();
+    } else {
+        res.send("Access Denied")
+    }
+};
+
+// 3. Logging
+// Har request ka record rakhna
+
+app.use((req,res,next) => {
+    console.log(req.method,req.url);
+    next();
+});
+
+// output: 
+// GET /users
+// POST /login
+
+// 4. Data Validation
+// Request ka data check karna
+
+const validateUser = (req,res,next) => {
+    if (!req.body.email) {
+        return res.send("Email Required")
+    }
+
+    next();
+}
+
+// 5. Error Handling
+// Errors ko handle karna.
+
+app.use((err,req,next)=> {
+    res.status(500).send("Something went wrong");
+});
+
+// 6. Parsing Data
+// JSON data ko JavaScript object me convert karna.
+
+app.use(express.json());
+
+// Middleware ki zarurat code reuse, authentication, authorization, logging, 
+// validation aur request/response ko process karne ke liye hoti hai. 
+// Ye request aur route handler 
+// ke darmiyan execute hota hai aur application ko modular aur maintainable banata hai.
+
+// kisi specific routes ke liye middleware banana. 
+
+app.get("/",
+    (req,res,next) => {
+        const a = 5;
+        const b = 7;
+
+        console.log(a+b);
+        next();
+    }
+    , (req,res) => {
+        res.render('next')
+    })
+
+    
