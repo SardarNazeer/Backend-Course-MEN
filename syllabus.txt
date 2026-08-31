@@ -54,3 +54,37 @@ engine ke zariye krty hai ejs Engine
 Middelwares 
 
 Middleware ek function hota hai jo request aur response ke beech me execute hota hai.
+
+Built-In Controllers and Form Controllers
+
+MongoDb
+
+MongoDB ek NoSQL Database hai jo data ko tables aur rows me store karne ke 
+bajaye documents ki form me store karta hai.
+
+MySql Db (SQL)
+
+Students Table
+
+| id | name | age |
+|----|------|-----|
+| 1  | Ali  | 22  |
+
+MongoDb 
+
+{
+  "_id": "123",
+  "name": "Ali",
+  "age": 22
+}
+
+Ye document JSON jaisa format use karta hai jise MongoDB me BSON (Binary JSON) kehte hain.
+
+CRUD Operations
+
+CRUD ka matlab:
+
+C = Create
+R = Read
+U = Update
+D = Delete
