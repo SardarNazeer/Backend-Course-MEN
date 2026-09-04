@@ -24,8 +24,21 @@ app.get('/profile', (req,res) => {
 })
 
 app.get('/register', (req,res) => {
+    res.render('register')
+})
+
+app.post('/register',(req,res)=>{
+
+    const {username,email,password} = req.body
+
+    userModel.create({
+        username: username,
+        email: email,
+        password: password
+    })
+
     console.log(req.body)
-    res.send("data recieved")
+    res.send('user register')
 })
 
 app.listen(3000)

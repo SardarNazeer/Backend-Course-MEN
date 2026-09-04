@@ -1,0 +1,40 @@
+What is backend?
+
+Backend application ka woh part hota hai jo server par run karta hai aur data,
+business logic, authentication aur database ko handle karta hai.
+
+Backend:
+
+User registration handle karta hai
+Login handle karta hai
+Database se data leta hai
+Database mein data save karta hai
+Data update/delete karta hai
+Authentication karta hai
+Authorization karta hai
+APIs provide karta hai
+Business logic handle karta hai
+
+What is server?
+
+Server ek computer/system hota hai jo dusre computers ya users ko data, 
+services ya resources provide karta hai
+Yani server ka kaam requests receive karna aur response dena hota hai.
+
+What is packages?
+
+Aisa code jo dosre developer ne likha huta hai still hum usko use kar skte hai.
+
+Nodemodule folder?
+
+jo packages hum download karte hai woh is folder me rehty hai.
+
+package.json?
+
+package.json folder maintain karta hai ke apka code me kon konse packages install hai.
+
+package-lock.json?
+
+jo apka code hai ya app hai woh kin packages pe depned karta hai,
+or jo packages hai woh kis packages pe depend karte hai ye sub package-lock.json dekhta hai.
+
