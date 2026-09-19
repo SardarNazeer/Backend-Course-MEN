@@ -1,7 +1,7 @@
 // ye root file me server start karty hai 
 
 // hum apne src folder se app file import kar rahe hai jisme server create hua hai. 
-const app = require("./src/app")
+const app = require("./src/app.js")
 
 // server ko start karna 
 app.listen(3000,()=>{
